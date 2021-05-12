@@ -1,7 +1,8 @@
 import React from 'react'
+import { AreaFooter } from './styles'
 
 function Footer() {
-  return <div>Todos direitos reservados</div>
+  return <AreaFooter>Todos direitos reservados</AreaFooter>
 }
 
 export default Footer
