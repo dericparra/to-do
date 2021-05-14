@@ -31,7 +31,9 @@ export const AreaHeader = styled.div`
   .link {
     text-decoration: none;
     color: #fff;
-
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     &:hover {
       color: #7b11a3;
     }

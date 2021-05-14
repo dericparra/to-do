@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { AreaHeader } from './styles'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 function Header() {
   return (
@@ -11,6 +12,7 @@ function Header() {
         <div className="logout">
           {' '}
           <Link to="/" className="link">
+            <ExitToAppIcon />
             Sair
           </Link>
         </div>
