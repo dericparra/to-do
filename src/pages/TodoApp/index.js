@@ -1,13 +1,58 @@
-import React from 'react'
+import React, { Component } from 'react'
+import ToDoItem from '../../components/toDoItem'
+import './styles.css'
 
-import { ContainerPage, TitlePage } from '../../components/Main'
+class ToDoList extends Component {
+  constructor(props) {
+    super(props)
 
-const Page = () => {
-  return (
-    <ContainerPage>
-      <TitlePage>Olá, O que vamos fazer hoje?</TitlePage>
-    </ContainerPage>
-  )
+    this.state = {
+      items: []
+    }
+
+    this.addItem = this.addItem.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
+  }
+  addItem(e) {
+    if (this._inputElement.value !== '') {
+      var newItem = {
+        text: this._inputElement.value,
+        key: Date.now
+      }
+
+      this.setState((previouslyState) => {
+        return {
+          items: previouslyState.items.concat(newItem)
+        }
+      })
+      this._inputElement.value = ''
+    }
+    e.preventDefault()
+  }
+  deleteItem(key) {
+    var filterItems = this.state.items.filter(function (item) {
+      return item.key !== key
+    })
+    this.setState({
+      items: filterItems
+    })
+  }
+
+  render() {
+    return (
+      <div className="todoListMain">
+        <div className="header">
+          <form onSubmit={this.addItem}>
+            <input
+              ref={(a) => (this._inputElement = a)}
+              placeholder="Digite sua tarefa"
+            ></input>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+        <ToDoItem entries={this.state.items} delete={this.deleteItem} />
+      </div>
+    )
+  }
 }
-
-export default Page
+export default ToDoList

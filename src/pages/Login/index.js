@@ -8,7 +8,7 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import GTranslateIcon from '@material-ui/icons/GTranslate'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
-const Page = (onReceiveGoogle) => {
+const Page = ({ onReceiveGoogle }) => {
   const actionLoginGoogle = async () => {
     let result = await Api.googleLogin()
 

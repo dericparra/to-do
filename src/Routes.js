@@ -7,10 +7,10 @@ import TodoApp from './pages/TodoApp'
 export default () => {
   return (
     <Switch>
-      <Route exact path="/">
+      <Route path="/login">
         <Login />
       </Route>
-      <Route path="/todo">
+      <Route exact path="/">
         <TodoApp />
       </Route>
     </Switch>
